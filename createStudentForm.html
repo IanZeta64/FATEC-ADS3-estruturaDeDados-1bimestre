@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro de Alunos</title>
+    <script src="StudentService.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+</head>
+<body>
+    
+    <h1>Formulário de Cadastro de Alunos</h1>
+    <div class="row">
+        <div class="col-md-6 mb-4">
+    <form id="formStudent">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s]+" title="Apenas letras e espaços são permitidos"><br><br>
+    
+        <label for="ra">RA:</label>
+        <input type="text" id="ra" name="ra" required pattern="[0-9]+" title="Apenas números inteiros são permitidos"><br><br>
+    
+        <label for="age">Idade:</label>
+        <input type="text" id="age"a name="age" required pattern="[0-9]+" title="Apenas números inteiros são permitidos"><br><br>
+    
+        <label for="sex">Sexo:</label>
+        <select id="sex" name="sex" required>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+            <option value="Outro">Outro</option>
+        </select><br><br>
+    
+        <label for="avgScore">Média:</label>
+        <input type="number" step="0.01" id="avgScore" name="avgScore" required min="0" max="10" pattern="^[0-9]+(\.[0-9]{1,2})?$" title="Entre 0.0 e 10.0"><br><br>
+    
+        <button class="button" type="submit">Cadastrar Aluno</button>
+    </form>
+</div>
+<div class="col-md-6 mb-4">
+    <div class="studentTable" id="studentTable">
+        <table>
+            <thead>
+                <tr>
+                    <div class="selectOrderContainer">
+                        <select id="orderSelect">
+                            <option value="0">Nome Crescente</option>
+                            <option value="1">RA Decrescente</option>
+                            <option value="2">Aprovados</option>
+                        </select>
+                        <button class="button" onclick="getStudentsList()">Aplicar Seleção</button>
+                    </div>
+                    <th>Nome</th>
+                    <th>RA</th>
+                    <th>Idade</th>
+                    <th>Genêro</th>
+                    <th>Média</th>
+                    <th>Situação</th>
+                </tr>
+            </thead>
+            <tbody id="listBody"></tbody>
+        </table>
+    </div>
+</div>
+</div>
+</body>
+</html>
